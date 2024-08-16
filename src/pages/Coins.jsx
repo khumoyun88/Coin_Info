@@ -59,7 +59,7 @@ export default function Coins() {
     "body": {
       "base": "group/body",
       "cell": {
-        "base": " px-6 py-3 group-first/body:group-first/row:first:rounded-tl-lg group-first/body:group-first/row:last:rounded-tr-lg group-last/body:group-last/row:first:rounded-bl-lg group-last/body:group-last/row:last:rounded-br-lg "
+        "base": "px-6 py-3 group-first/body:group-first/row:first:rounded-tl-lg group-first/body:group-first/row:last:rounded-tr-lg group-last/body:group-last/row:first:rounded-bl-lg group-last/body:group-last/row:last:rounded-br-lg "
       }
     },
     "head": {
@@ -72,6 +72,34 @@ export default function Coins() {
       "base": "group/row",
       "hovered": "hover:bg-gray-50 dark:hover:bg-gray-600",
       "striped": "odd:bg-[#242424] even:bg-[#242424] odd:dark:bg-[#242424] even:dark:bg-gray-700 border-b border-gray-500 "
+    }
+  }
+
+  const paginationTheme ={
+    "base": "",
+    "layout": {
+      "table": {
+        "base": "text-sm text-gray-700 dark:text-gray-400",
+        "span": "font-semibold text-gray-900 dark:text-white"
+      }
+    },
+    "pages": {
+      "base": " xs:mt-0 mt-2 inline-flex items-center -space-x-px",
+      "showIcon": "inline-flex",
+      
+      "previous": {
+        "base": " bg-inherite px-3 py-2 leading-tight text-white",
+        "icon": "h-5 w-5"
+      },
+      "next": {
+        "base": " bg-inherite px-3 py-2 leading-tight text-white",
+        "icon": "h-5 w-5"
+      },
+      "selector": {
+        "base": "p-3   bg-inherite py-2 leading-tight text-white text-[10px]   dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 ",
+        "active": "bg-gray-600 text-white-600 rounded-full  dark:border-gray-700 dark:bg-gray-700 dark:text-white",
+        "disabled": "cursor-not-allowed opacity-50"
+      }
     }
   }
 
@@ -116,7 +144,7 @@ export default function Coins() {
                       }}
                     />
                     <p style={{ color: c.price_change_percentage_24h < 0 ? 'red' : 'green' }}>
-                      {c.price_change_percentage_24h}
+                      {c.price_change_percentage_24h.toFixed(2)}
                     </p>
                   </div>
                 </TableCell>
@@ -126,9 +154,9 @@ export default function Coins() {
           </TableBody>
         </Table>
 
-        {/* Pagination Component */}
         <div className="flex justify-center mt-4">
           <Pagination
+            theme={paginationTheme}
             currentPage={currentPage}
             totalPages={Math.ceil(coins.length / coinsPerPage)}
             onPageChange={setCurrentPage}
