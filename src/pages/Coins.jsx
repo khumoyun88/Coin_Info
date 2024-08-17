@@ -22,6 +22,7 @@ export default function Coins() {
 
     async function fetchCoins() {
       const response = await fetch(
+        // "https://api.coingecko.com/api/v3/coins/bitcoin"
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=gecko_desc&per_page=249&page=1&sparkline=false&price_change_percentage=24h"
       );
       const data = await response.json();
@@ -131,7 +132,7 @@ export default function Coins() {
                     </div>
                   </Link>
                 </TableCell>
-                <TableCell>{c.current_price}</TableCell>
+                <TableCell>$ {c.current_price}</TableCell>
                 <TableCell>
                   <div className="flex items-center">
                     <FontAwesomeIcon
@@ -146,9 +147,10 @@ export default function Coins() {
                     <p style={{ color: c.price_change_percentage_24h < 0 ? 'red' : 'green' }}>
                       {c.price_change_percentage_24h.toFixed(2)}
                     </p>
+                  
                   </div>
                 </TableCell>
-                <TableCell>{c.market_cap_change_24h}</TableCell>
+                <TableCell>${c.market_cap}</TableCell>
               </TableRow>
             ))}
           </TableBody>

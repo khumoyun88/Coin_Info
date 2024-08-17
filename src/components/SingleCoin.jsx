@@ -35,11 +35,11 @@ export default function SinglCoin() {
                 </div>
                 <div className="mt-5" >
                     <p className="inline  mr-5" >Current Price:</p>
-                    <p className="inline" >{coin.current_price}</p>
+                    <p className="inline">${coin.current_price}</p>
                 </div>
                 <div className="mt-5" >
                     <p className="inline  mr-5" >Market Cap:</p>
-                    <p className="inline">{coin.market_cap}</p>
+                    <p className="inline">$ {coin.market_cap}</p>
                 </div>
 
             </div>
