@@ -20,7 +20,7 @@ export const data = {
     ],
     datasets: [
       {
-        label: "2023 year",
+        label: "Price past 1 day",
         data: [
 
     29500, 29520, 29530, 29490, 29480, 29520, 29550, 29540,
@@ -61,7 +61,7 @@ export const data = {
       },
       title: {
         display: true,
-        text: "How I use phone in during the day. ",
+        text: "",
       },
     },
   };
